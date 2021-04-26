@@ -1,0 +1,59 @@
+<!DOCTYPE>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <script src="script/Cookies.js"></script>
+    <script src='script/Content.js'></script>
+    <script src='script/Product.js'></script>
+    <script src='script/RequestMaker.js'></script>
+    <script src="script/ScreenError.js"></script>
+    <link rel="stylesheet" href="style/screen.css">
+    <link rel="stylesheet" href="style/content.css">
+</head>
+
+<body>
+    <script>
+        Cookies.checkRedirectCookies("auth=true", "registration.html", false)
+    </script>
+    <div id="add_page" class="add_page">
+        <span class="hello">
+            <p id="greeting" class="greeting"></p>
+            <button class="logout" id="logout">Log out</button>
+        </span>
+        <div class="sort">
+            <div class="custom_select">
+                <select name="sort" id="sort_select">
+                    <option value="">sort by:</option>
+                    <option value="name">name</option>
+                    <option value="price">price</option>
+                </select>
+            </div>
+        </div>
+        <div class="add_container" id="add_container">
+        </div>
+    </div>
+    <template id="template">
+        <div id="newElementDiv" class="page">
+            <div><img class="product_img"></div>
+            <div id="newNamePriceDiv" class="name_price">
+                <div id="nameA" class="name"></div>
+                <div id="priceA" class="price"></div>
+            </div>
+        </div>
+    </template>
+    <div class="modal_screen_error_back hide_screen_error">
+        <div class="screen_error">
+            <h1>ScreenError</h1>
+            <button class="close_error_screen">
+                <img src="./pic/close.png" alt="">
+            </button>
+        </div>
+    </div>
+    <script>
+        Content.Init(document.body); 
+    </script>
+</body>
+
+</html>

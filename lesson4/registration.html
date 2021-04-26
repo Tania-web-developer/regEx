@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script/Cookies.js"></script>
+    <script src="script/LoginRegistration.js"></script>  
+    <script src="script/forms/Form.js"></script>
+    <script src="script/RequestMaker.js"></script>
+    <script src="script/forms/LoginForm.js"></script>
+    <script src="script/forms/RegistrationForm.js"></script>
+    <script src="script/ScreenError.js"></script>
+    <link rel="stylesheet" href="style/screen.css">
+    <link rel="stylesheet" href="style/form.css">
+</head>
+
+<body>
+    <script>
+        Cookies.checkRedirectCookies("auth=true", "content.html", true);
+    </script>
+    <div id="modal_login_back" class="modal_back modal_open">
+        <form name="form_login" action="http://f0464737.xsph.ru.xsph.ru/base_product/backend/check_signin.php"
+            method="POST">
+            <div class="form-field">
+                <input required class='validated' minlength="3" maxlength="10" pattern="[A-Za-z0-9]{3,10}"
+                    placeholder="Login" name="login">
+                <div class="msg_error_hide" id="login_error">логин должен содержать только буквы и цифры</div>
+            </div>
+            <div class="form-field">
+                <input required class='validated' minlength="4" maxlength="10" pattern="\w{4,10}" placeholder="Password"
+                    type="password" name="password"><br>
+                <div class="msg_error_hide" id="password_error">пароль должен быть не менее 4 знаков</div>
+            </div>
+            <input disabled class="button" name="submit_btn" type="button" value="login">
+            <div class="link"><a id="login">Registration</a></div>
+        </form>
+    </div>
+    <div id="modal_registration_back" class="modal_back">
+        <form class="form" name="form_registration"
+            action="http://f0464737.xsph.ru.xsph.ru/base_product/backend/insert_user.php" method="POST">
+            <div class="form-field">
+                <input required class='validated' minlength="3" maxlength="10" pattern="[A-Za-z0-9]{3,10}"
+                    placeholder="Login" name="login">
+                <div class="msg_error_hide" id="login_error">логин должен содержать только буквы и цифры</div>
+            </div>
+            <div class="check">
+                <label>M</label>
+                <input class="radio" type="radio" name="sex" value="m" checked>
+                <label>W</label>
+                <input class="radio" type="radio" name="sex" value="w">
+            </div>
+            <div class="form-field">
+                <input required class='validated' placeholder="Password" minlength="4" maxlength="10" type="password"
+                    name="password">
+                <div class="msg_error_hide" id="password_error">пароль должен быть не менее 4 знаков</div>
+            </div>
+            <div class="form-field">
+                <input required placeholder="Repeat password" type="password" id="check_password" name='check_password'>
+                <div class="msg_error_hide" id="check_password_error">пароли должны совпадать</div>
+            </div>
+            <input disabled class="button" name="submit_btn" type="button" value="Registration">
+            <div class="link"><a class="link" id="registration">Login</a></div>
+        </form>
+    </div>
+    <div class="modal_screen_error_back hide_screen_error">
+        <div class="screen_error">
+            <h1>ScreenError</h1>
+            <button class="close_error_screen">
+                <img src="./pic/close.png" alt="">
+            </button>
+        </div>
+    </div>
+    <script>
+        LoginRegistration.Init(document.body); 
+    </script>
+</body>
+
+</html>

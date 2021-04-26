@@ -1,0 +1,44 @@
+.modal_screen_error_back {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 5;
+    background-color: grey;
+    opacity: 0.8;
+}
+
+.screen_error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+}
+
+.show_screen_error {
+    display: flex;
+}
+
+.hide_screen_error {
+    display: none;
+}
+
+.close_error_screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+}
+
+.close_error_screen img {
+    width: 30px;
+}

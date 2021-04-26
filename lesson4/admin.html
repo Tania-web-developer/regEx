@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script/Cookies.js"></script> 
+    <script src="script/Admin.js"></script>   
+    <script src='script/RequestMaker.js'></script>
+    <script src="script/forms/Form.js"></script>
+    <script src="script/forms/LoginForm.js"></script>
+    <script src="script/forms/RegistrationForm.js"></script>    
+    <script src="script/forms/AdminForm.js"></script>
+    <script src="script/ScreenError.js"></script>
+    <link rel="stylesheet" href="style/screen.css">
+    <link rel="stylesheet" href="style/form.css">
+</head>
+
+<body>
+    <script>
+        Cookies.checkRedirectCookies("role=admin", "content.html", false)//+ любое количество от 1 до бесконечности 
+    </script>
+    <div class="modal_back modal_open">
+        <form name="admin_form" enctype="multipart/form-data"
+            action="http://f0464737.xsph.ru.xsph.ru/base_product/backend/insert_product.php" method="POST">
+            <span class="form-field">
+                <input class='validated' required minlength="3" maxlength="10" pattern="[A-Z][A-Za-z]+"
+                    placeholder="Name" name="name">
+                <div class="msg_error_hide" id="name_error">имя товара нужно ввести с большой буквы</div>
+            </span>
+            <span class="form-field">
+                <input required pattern="\d+" placeholder="Price" type="number" name="price">
+                <div class="msg_error_hide" name="price">введите число</div>
+            </span>
+            <input required type="file" accept="image/jpg" name="image" class='validated'>
+            <div class="msg_error_hide" id="image_error"></div>
+            <input class="button" required name="submit_btn" type="button" value="add product">
+        </form>
+        <div class="modal_screen_error_back hide_screen_error">
+            <div class="screen_error">
+                <h1>ScreenError</h1>
+                <button class="close_error_screen">
+                    <img src="./pic/close.png" alt="">
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+        Admin.Init(document.body); 
+    </script>
+</body>
+
+</html>
